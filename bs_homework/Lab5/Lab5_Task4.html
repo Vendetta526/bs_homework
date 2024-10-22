@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <style>
+        .row * {
+            align-self: center;
+        }
+
+        select {
+            background-color: rgba(56, 95, 110, 1.00) !important;
+            color: white !important;
+        }
+
+        span {
+            color: rgba(56, 95, 110, 1.00)
+        }
+
+        button {
+            border: none;
+            background: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="fs-4 border-bottom border-4">
+            Конвертер валют
+        </div>
+        <div class="container bg-light my-1 rounded-1 text-center p-3">
+            <div class="row gap-2 justify-content-around">
+                <div class="col-sm-12 col-md-5 text-start">
+                    <span>Віддаємо:</span>
+                    <br>
+                    <select name="" id="1" class="form-control"></select>
+                </div>
+                <div class="col-sm-12 col-md-1 align-self-end">
+                    <?xml version="1.0" encoding="utf-8"?>
+                    <button id="btn">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1.9rem" height="1.9rem"
+                            viewBox="0 0 95.396 122.88" enable-background="new 0 0 95.396 122.88" xml:space="preserve">
+                            <g>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M0,93.349l30.717,29.531l0.002-19.008H85.11v-21.05h-0.002V68.516l0.002-0.413 l-0.004-18.861L64.06,69.475l0.002,13.348h-33.34l-0.004-19.008L0,93.349L0,93.349z M95.396,29.533L64.68,0l-0.002,19.011 l-28.031,0l-0.533-0.002l-25.827,0l-0.002,1.025v25.833l0.002,23.394h3.293l17.754-17.069v-5.794l0.002-0.535V40.06h33.34 l0.004,19.006L95.396,29.533L95.396,29.533L95.396,29.533z" />
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+                <div class="col-sm-12 col-md-5 text-start">
+                    <span>Отримуємо:</span>
+                    <br>
+                    <select name="" id="2" class="form-control"></select>
+                </div>
+            </div>
+            <br>
+            <div class="row gap-2 justify-content-around">
+                <div class="col-sm-12 col-md-5  text-start">
+                    <span>Скільки потрібно обміняти:</span>
+                    <br>
+                    <input type="text" name="" id="inp1" class="form-control">
+                </div>
+                <div class="col-sm-12 col-md-1 align-self-end my-2 py-auto">
+                    або
+                </div>
+                <div class="col-sm-12 col-md-5  text-start">
+                    <span>Скільки потрібно отримати:</span>
+                    <br>
+                    <input type="text" name="" id="inp2" disabled class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script defer>
+    let arr = ["USD - долар", "UAH - гривня", "NOK - норвезька крона", "EUR - євро", "CAD - канадський долар", "SEK - шведська крона", "RUB - рубль", "AUD - австралійський долар", "BYR - білоруський рубль", "GBP - фунт стерлінгів", "GEL - грузинський ларі", "BYN - новий білоруський рубль", "CHF - швейцарський франк", "MDL - молдавський лей", "CZK - чеська крона", "PLN - польський злотий", "CNY - китайський юань", "ISK - ісландська крона", "JPY - японська ієна", "DKK - датська крона", "SKK - словацька крона"]
+    let currency = {
+        'USD':
+            { 'UAH': 36.5, 'NOK': 11.3, 'EUR': 0.94, 'CAD': 1.36, 'SEK': 10.7, 'RUB': 98, 'AUD': 1.57, 'BYN': 3.17, 'GBP': 0.82, 'GEL': 2.6, 'CHF': 0.89, 'CZK': 23.2, 'PLN': 4.1, 'CNY': 7.3, 'JPY': 149, 'DKK': 7, 'MDL': 17.5 },
+        'EUR':
+            { 'USD': 1.06, 'UAH': 39.5, 'NOK': 12.1, 'CAD': 1.44, 'SEK': 11.4, 'RUB': 103, 'AUD': 1.67, 'BYN': 3.37, 'GBP': 0.87, 'GEL': 2.76, 'CHF': 0.95, 'CZK': 24.6, 'PLN': 4.4, 'CNY': 7.7, 'JPY': 158, 'DKK': 7.45, 'MDL': 18.5 },
+        'UAH':
+            { 'USD': 0.027, 'EUR': 0.025, 'NOK': 0.31, 'CAD': 0.035, 'SEK': 0.27, 'RUB': 2.68, 'AUD': 0.043, 'BYN': 0.086, 'GBP': 0.021, 'GEL': 0.066, 'CHF': 0.024, 'CZK': 0.63, 'PLN': 0.11, 'CNY': 0.2, 'JPY': 4.1, 'DKK': 0.19, 'MDL': 0.48 },
+        'GBP':
+            { 'USD': 1.22, 'UAH': 44.8, 'NOK': 13.9, 'EUR': 1.15, 'CAD': 1.65, 'SEK': 12.9, 'RUB': 114, 'AUD': 1.91, 'BYN': 3.85, 'GEL': 3.15, 'CHF': 1.08, 'CZK': 27.3, 'PLN': 4.92, 'CNY': 8.56, 'JPY': 178, 'DKK': 8.6, 'MDL': 21.3 },
+        'JPY':
+            { 'USD': 0.0067, 'UAH': 0.24, 'NOK': 0.093, 'EUR': 0.0063, 'CAD': 0.0091, 'SEK': 0.072, 'RUB': 0.66, 'AUD': 0.011, 'BYN': 0.022, 'GBP': 0.0056, 'GEL': 0.017, 'CHF': 0.006, 'CZK': 0.16, 'PLN': 0.028, 'CNY': 0.049, 'DKK': 0.048, 'MDL': 0.12 },
+        'NOK':
+            { 'USD': 135, 'UAH': 7772, 'EUR': 199, 'CAD': 59, 'SEK': 135, 'RUB': 31, 'AUD': 171, 'BYR': 244, 'GBP': 241, 'GEL': 165, 'BYN': 204, 'CHF': 103, 'MDL': 81, 'CZK': 115, 'PLN': 238, 'CNY': 103, 'ISK': 132, 'JPY': 87, 'DKK': 173, 'SKK': 145 },
+        'CAD':
+            { 'USD': 259, 'UAH': 6126, 'NOK': 275, 'EUR': 292, 'SEK': 82, 'RUB': 44, 'AUD': 281, 'BYR': 84, 'GBP': 294, 'GEL': 141, 'BYN': 289, 'CHF': 229, 'MDL': 193, 'CZK': 203, 'PLN': 111, 'CNY': 264, 'ISK': 169, 'JPY': 288, 'DKK': 87, 'SKK': 229 },
+        'SEK':
+            { 'USD': 110, 'UAH': 7468, 'NOK': 54, 'EUR': 179, 'CAD': 139, 'RUB': 51, 'AUD': 179, 'BYR': 126, 'GBP': 55, 'GEL': 145, 'BYN': 121, 'CHF': 191, 'MDL': 155, 'CZK': 88, 'PLN': 114, 'CNY': 253, 'ISK': 235, 'JPY': 209, 'DKK': 279, 'SKK': 127 },
+        'RUB':
+            { 'USD': 242, 'UAH': 7102, 'NOK': 213, 'EUR': 112, 'CAD': 259, 'SEK': 264, 'AUD': 152, 'BYR': 216, 'GBP': 180, 'GEL': 73, 'BYN': 113, 'CHF': 154, 'MDL': 276, 'CZK': 292, 'PLN': 100, 'CNY': 264, 'ISK': 157, 'JPY': 199, 'DKK': 230, 'SKK': 80 },
+        'AUD':
+            { 'USD': 236, 'UAH': 8756, 'NOK': 65, 'EUR': 62, 'CAD': 216, 'SEK': 112, 'RUB': 57, 'BYR': 151, 'GBP': 56, 'GEL': 238, 'BYN': 125, 'CHF': 235, 'MDL': 114, 'CZK': 125, 'PLN': 211, 'CNY': 160, 'ISK': 101, 'JPY': 243, 'DKK': 258, 'SKK': 273 },
+        'BYR':
+            { 'USD': 124, 'UAH': 7029, 'NOK': 299, 'EUR': 171, 'CAD': 233, 'SEK': 95, 'RUB': 22, 'AUD': 293, 'GBP': 106, 'GEL': 192, 'BYN': 71, 'CHF': 286, 'MDL': 231, 'CZK': 276, 'PLN': 95, 'CNY': 130, 'ISK': 55, 'JPY': 242, 'DKK': 179, 'SKK': 293 },
+        'GEL':
+            { 'USD': 241, 'UAH': 8532, 'NOK': 261, 'EUR': 186, 'CAD': 263, 'SEK': 88, 'RUB': 55, 'AUD': 199, 'BYR': 84, 'GBP': 64, 'BYN': 101, 'CHF': 176, 'MDL': 183, 'CZK': 116, 'PLN': 255, 'CNY': 193, 'ISK': 197, 'JPY': 121, 'DKK': 220, 'SKK': 180 },
+        'BYN':
+            { 'USD': 207, 'UAH': 9204, 'NOK': 201, 'EUR': 227, 'CAD': 146, 'SEK': 142, 'RUB': 50, 'AUD': 82, 'BYR': 257, 'GBP': 86, 'GEL': 148, 'CHF': 156, 'MDL': 192, 'CZK': 203, 'PLN': 183, 'CNY': 81, 'ISK': 134, 'JPY': 185, 'DKK': 80, 'SKK': 123 },
+        'CHF':
+            { 'USD': 204, 'UAH': 8194, 'NOK': 55, 'EUR': 235, 'CAD': 138, 'SEK': 260, 'RUB': 6, 'AUD': 141, 'BYR': 241, 'GBP': 120, 'GEL': 199, 'BYN': 150, 'MDL': 130, 'CZK': 113, 'PLN': 271, 'CNY': 153, 'ISK': 201, 'JPY': 241, 'DKK': 205, 'SKK': 73 },
+        'MDL':
+            { 'USD': 193, 'UAH': 6682, 'NOK': 199, 'EUR': 234, 'CAD': 70, 'SEK': 86, 'RUB': 27, 'AUD': 277, 'BYR': 135, 'GBP': 229, 'GEL': 144, 'BYN': 215, 'CHF': 192, 'CZK': 191, 'PLN': 245, 'CNY': 190, 'ISK': 272, 'JPY': 207, 'DKK': 142, 'SKK': 85 },
+        'CZK':
+            { 'USD': 266, 'UAH': 9750, 'NOK': 187, 'EUR': 114, 'CAD': 224, 'SEK': 276, 'RUB': 18, 'AUD': 105, 'BYR': 179, 'GBP': 292, 'GEL': 148, 'BYN': 202, 'CHF': 214, 'MDL': 257, 'PLN': 75, 'CNY': 59, 'ISK': 261, 'JPY': 144, 'DKK': 286, 'SKK': 136 },
+        'PLN':
+            { 'USD': 115, 'UAH': 6690, 'NOK': 80, 'EUR': 114, 'CAD': 265, 'SEK': 212, 'RUB': 4, 'AUD': 200, 'BYR': 156, 'GBP': 122, 'GEL': 233, 'BYN': 270, 'CHF': 52, 'MDL': 244, 'CZK': 237, 'CNY': 291, 'ISK': 242, 'JPY': 103, 'DKK': 195, 'SKK': 144 },
+        'CNY':
+            { 'USD': 200, 'UAH': 6542, 'NOK': 92, 'EUR': 292, 'CAD': 174, 'SEK': 227, 'RUB': 15, 'AUD': 177, 'BYR': 100, 'GBP': 208, 'GEL': 274, 'BYN': 232, 'CHF': 298, 'MDL': 236, 'CZK': 138, 'PLN': 150, 'ISK': 109, 'JPY': 196, 'DKK': 295, 'SKK': 88 },
+        'ISK':
+            { 'USD': 270, 'UAH': 6027, 'NOK': 199, 'EUR': 196, 'CAD': 213, 'SEK': 110, 'RUB': 9, 'AUD': 261, 'BYR': 64, 'GBP': 204, 'GEL': 92, 'BYN': 162, 'CHF': 125, 'MDL': 114, 'CZK': 171, 'PLN': 75, 'CNY': 183, 'JPY': 223, 'DKK': 272, 'SKK': 150 },
+        'DKK':
+            { 'USD': 109, 'UAH': 7438, 'NOK': 148, 'EUR': 227, 'CAD': 261, 'SEK': 134, 'RUB': 51, 'AUD': 88, 'BYR': 171, 'GBP': 216, 'GEL': 202, 'BYN': 253, 'CHF': 277, 'MDL': 151, 'CZK': 95, 'PLN': 217, 'CNY': 227, 'ISK': 256, 'JPY': 87, 'SKK': 170 },
+        'SKK':
+            { 'USD': 118, 'UAH': 6629, 'NOK': 291, 'EUR': 253, 'CAD': 189, 'SEK': 105, 'RUB': 27, 'AUD': 158, 'BYR': 187, 'GBP': 160, 'GEL': 259, 'BYN': 79, 'CHF': 265, 'MDL': 68, 'CZK': 176, 'PLN': 224, 'CNY': 199, 'ISK': 141, 'JPY': 190, 'DKK': 218 }
+    }
+
+    function currency_converter() {
+        let give = select1.options[select1.options.selectedIndex].value
+        let get = select2.options[select2.options.selectedIndex].value
+        inp2.value = inp1.value * currency[give][get]
+    }
+
+    function switch_selects() {
+        let temp = select1.selectedIndex
+        select1.selectedIndex = select2.selectedIndex
+        select2.selectedIndex = temp
+        currency_converter()
+    }
+
+    let select1 = document.getElementById('1')
+    let select2 = document.getElementById('2')
+    let inp1 = document.getElementById('inp1')
+    let inp2 = document.getElementById('inp2')
+    let btn = document.getElementById('btn')
+    let elements = [select1,select2,inp1]
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let new_opt, clone_opt
+        for (let i = 0; i < arr.length; i++) {
+            new_opt = document.createElement('Option')
+            new_opt.text = arr[i]
+            new_opt.value = arr[i].slice(0, 3)
+            select1.appendChild(new_opt)
+            clone_opt = new_opt.cloneNode(true)
+            select2.appendChild(clone_opt)
+        }
+
+        btn.addEventListener("click", switch_selects)
+
+        elements.forEach(element => {
+            element.addEventListener('input', currency_converter)
+        });
+
+    })
+</script>
+
+</html>
