@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab12_Task2.html</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: #860505 !important;
+            text-decoration: none;
+        }
+
+        a:hover,
+        a:focus,
+        .dropend button:focus,
+        .dropend button:hover {
+            color: #9c0909 !important;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropend button {
+            border: none
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .card {
+            height: 100%;
+            width: 100%;
+            align-self: center;
+        }
+
+        .row {
+            margin-bottom: 2rem;
+        }
+
+        .row>div {
+            justify-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .offcanvas-title,
+        .navbar-brand {
+            color: #7d7068 !important;
+        }
+
+        .special {
+            width: 100px;
+        }
+
+        .special {
+            background-color: #be060f;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+
+        .special:hover {
+            background-color: #9e050f;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+        }
+
+
+        .special:active {
+            background-color: #8c050b;
+            transform: translateY(0);
+        }
+
+        .special {
+            background-color: #be060f;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .special:hover {
+            background-color: #9e050f;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .special:active {
+            background-color: #8c050b;
+            transform: translateY(0);
+        }
+    </style>
+    <base href="https://www.chaipotutory.com.ua/" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg" style="background: rgba(245, 243, 214, 1.00) !important;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                TEES UND GEWÜRZE AUS POTUTORY
+                <br>
+                aus Liebe zum Leben und zur Natur
+            </a>
+            <button class="navbar-toggler collapse" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav m-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold fs-5 " href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Про нас
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold fs-5 " href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Товари
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold fs-5 " href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Замовлення
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold fs-5 " href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Контакти
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold fs-5 " href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Корзина
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <a class="btn " data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                aria-controls="offcanvasExample">
+                <span class="navbar-toggler-icon"></span>
+            </a>
+        </div>
+    </nav>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+                TEES UND GEWÜRZE AUS POTUTORY
+                <br>
+                aus Liebe zum Leben und zur Natur
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body mx-1">
+            <form class="form-search mb-3" action="/index.php/ua/component/finder/search.html?Itemid=101" method="get">
+                <label for="q"></label>
+                <div class="awesomplete"><input type="text" name="q" id="q" class="form-control" value=""
+                        placeholder="Пошук...">
+                </div>
+            </form>
+            <div>
+                <div>
+                    <ul>
+                        <li>
+                            <div class="w-100 text-center">
+                                <div class="card" style="width: auto;">
+                                    <img src="/images/foto/tea6.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body" style="">
+                                        <h5 class="card-title">Гоп Швійц</h5>
+                                        <div style="text-align: center; color: #800000;"><em>гіркий чай, корисний для
+                                                печінки</em></div>
+                                        <div><strong><em>Склад: </em></strong>кропива*, деревій*, полин*, звіробій*,
+                                            ісоп*, цинторія*,
+                                            календула*</div>
+                                        <div>+ вірш Світлани Даньків&nbsp;</div>
+                                        <div><strong><em>Маса:</em></strong> 28г.</div>
+                                        <div><strong><em>Ціна:</em></strong>&nbsp;69,00грн.</div>
+                                        <div><strong>Кількість, шт. </strong>
+                                            <input class="form-control" max="9999" min="0" name="tea6" type="number"
+                                                id="tea6">
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <p><strong><em>Статус:</em></strong> є у наявності</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="w-100 text-center">
+                                <div class="card" style="width: auto;">
+                                    <img src="/images/foto/tea5.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Світанковий промінь</h5>
+                                        <div style="text-align: center; color: #800000;"><em>ранковий чай</em></div>
+                                        <div><strong><em>Склад: </em></strong>насіння кропу*, базилік лимонний*, імбир*,
+                                            ромашка*, чебрець*,
+                                            звіробій*</div>
+                                        <div>+ вірш Олександра Олеся&nbsp;</div>
+                                        <div><strong><em>Маса:</em></strong> 45г.</div>
+                                        <div><strong><em>Ціна:</em></strong>&nbsp;79,00грн.</div>
+                                        <div><strong>Кількість, шт. </strong>
+                                            <input class="form-control" max="9999" min="0" name="tea5" type="number"
+                                                id="tea5">
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <p><strong><em>Статус:</em></strong> є у наявності</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mb-4">
+                <button class="btn special w-100 fs-5">Оформити замовлення</button>
+            </div>
+        </div>
+    </div>
+</body>
+ 
+</html>
